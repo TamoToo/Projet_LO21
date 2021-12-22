@@ -6,7 +6,7 @@
 #include "main_functions.h"
 
 
-int main(int argc, char * argv[]) {
+int main(int argc, char *argv[]) {
 
     int base, nbval, nbcaract, nombre_decimal;
     char buffer[10];
@@ -28,12 +28,12 @@ int main(int argc, char * argv[]) {
     } while (nbval <= 0);
 
     // Allocation des espaces mémoire nécessaires sur le tas :
-    char ** tab_chaine = (char ** ) malloc(nbval * sizeof(char * ));
+    char **tab_chaine = (char **) malloc(nbval * sizeof(char *));
     for (int i = 0; i < nbval; i++) {
         // allocation pour 10 caractères + 1 caractère nul final
-        tab_chaine[i] = (char * ) malloc(11 * sizeof(char));
+        tab_chaine[i] = (char *) malloc(11 * sizeof(char));
     }
-    char * nombre_sortie;
+    char *nombre_sortie;
     // Saisie des chaînes de caractères :
     for (int i = 0; i < nbval; i++) {
         // saisie d'une chaîne de 10 caractères maximum
@@ -83,15 +83,12 @@ int main(int argc, char * argv[]) {
         for (int k = 0; k < base; k++) {
             if (T[k].liste_chiffre != NULL) {
                 List temp = T[k].liste_chiffre;
-                while (temp -> next != NULL) {
+                while (temp != NULL) {
                     strcpy(tab_chaine[l], temp -> nombre);
                     l++;
                     temp = temp -> next;
                     T[k].liste_chiffre = supprimer_tete(T[k].liste_chiffre);
                 }
-                strcpy(tab_chaine[l], temp -> nombre);
-                l++;
-                T[k].liste_chiffre = supprimer_tete(T[k].liste_chiffre);
             }
         }
         printf("\n");

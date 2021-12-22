@@ -5,14 +5,14 @@
 #include <ctype.h>
 #include "main_functions.h"
 
-void show_string(int nbval, char ** tableau) {
+void show_string(int nbval, char **tableau) {
     for (int i = 0; i < nbval; i++) {
         printf("Nombre %d :  ", i + 1);
         printf("'%s'\n", tableau[i]);
     }
 }
 
-void reverse_string(char * string) {
+void reverse_string(char *string) {
     char temp;
     for (int i = 0; i < strlen(string) / 2; i++) {
         temp = string[i];
@@ -71,7 +71,7 @@ char itoc(int nombre) {
     return caractere;
 }
 
-char * baseToBase(char * nombre_entree, int base_entree, int base_sortie) {
+char *baseToBase(char *nombre_entree, int base_entree, int base_sortie) {
     // On va passer par la représentation décimale pour faire la conversion
     int j = 0;
     int nb_zero;
@@ -81,7 +81,7 @@ char * baseToBase(char * nombre_entree, int base_entree, int base_sortie) {
 
     int max_power = 0;
     long int quotient, reste;
-    char * nombre_sortie = (char * ) calloc(11, sizeof(char));
+    char *nombre_sortie = (char *) calloc(11, sizeof(char));
     // Conversion vers la base 10
     for (int i = 0; i < taille_nombre; i++, power--) {
         if (!isdigit(nombre_entree[i])) {
@@ -114,7 +114,7 @@ char * baseToBase(char * nombre_entree, int base_entree, int base_sortie) {
 }
 
 //Afin d'avoir des chaines de caractères de même taille
-int equalize(int nbval, char ** tableau) {
+int equalize(int nbval, char **tableau) {
     int max = 0;
     int nbchar, nbgap; // nbchar : nombre de caractère d'un nombre, nbgap : différence entre le max et nbchar
     //ON cherche le nombre avec le plus de caractères
@@ -165,9 +165,9 @@ void afficher_list(List l, char numero_seau) {
     }
 }
 
-List ajout_fin(List l, char * c) {
-    List new_nbr = (seau * ) malloc(sizeof(seau));
-    new_nbr -> nombre = (char * ) malloc(11 * sizeof(char));
+List ajout_fin(List l, char *c) {
+    List new_nbr = (seau *) malloc(sizeof(seau));
+    new_nbr -> nombre = (char *) malloc(11 * sizeof(char));
     strcpy(new_nbr -> nombre, c);
 
     new_nbr -> next = NULL;
@@ -202,13 +202,13 @@ void viderBuffer() {
     }
 }
 
-int read_stdin(char * chaine, int longueur) {
-    char * positionEntree = NULL;
+int read_stdin(char *chaine, int longueur) {
+    char *positionEntree = NULL;
 
     if (fgets(chaine, longueur, stdin) != NULL) {
         positionEntree = strchr(chaine, '\n');
         if (positionEntree != NULL) {
-            * positionEntree = '\0';
+            *positionEntree = '\0';
         } else {
             viderBuffer();
         }
