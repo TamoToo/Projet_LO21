@@ -54,12 +54,11 @@ int main(int argc, char *argv[]) {
         }
         free(nombre_sortie);
     }
-    // Affichage des chaînes de caractères :
-    show_string(nbval, tab_chaine);
+
+
     nbcaract = equalize(nbval, tab_chaine);
 
     //Creation de N seaux
-
     list_seau T[base];
     for (int i = 0; i < base; i++) {
         T[i].liste_chiffre = NULL;
@@ -77,6 +76,7 @@ int main(int argc, char *argv[]) {
             T[nombre_decimal].liste_chiffre = ajout_fin(T[nombre_decimal].liste_chiffre, tab_chaine[j]);
             tab_chaine[j][0] = '\0';
         }
+        printf("\nEtape %d :",i+1);
         afficher_seaux(base, T);
         // On replace les nombres dans le tableau et on les retire des seaux
         l = 0;

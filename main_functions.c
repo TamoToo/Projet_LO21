@@ -6,9 +6,10 @@
 #include "main_functions.h"
 
 void show_string(int nbval, char **tableau) {
+	printf("\n");
     for (int i = 0; i < nbval; i++) {
         printf("Nombre %d :  ", i + 1);
-        printf("'%s'\n", tableau[i]);
+        printf("%s\n", tableau[i]);
     }
 }
 
@@ -161,7 +162,7 @@ void afficher_list(List l, char numero_seau) {
             printf("%s ", tmp -> nombre);
             tmp = tmp -> next;
         }
-        printf("%s ", tmp -> nombre);
+        printf("%s", tmp -> nombre);
     }
 }
 
